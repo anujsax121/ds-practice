@@ -12,11 +12,11 @@ public class ValidParentheses {
     }
 
     public static boolean isValid(String str) {
-        Map<Character, Character> map = new HashMap<>();
+        Map<Character, Character> map = new HashMap<Character, Character>();
         map.put('(', ')');
         map.put('{', '}');
         map.put('[', ']');
-        Stack<Character> stack = new Stack<>();
+        Stack<Character> stack = new Stack<Character>();
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
             if (map.containsKey(c)) {
@@ -30,7 +30,8 @@ public class ValidParentheses {
                     return false;
                 }
             }
-        } if(!stack.isEmpty()) {
+        }
+        if (!stack.isEmpty()) {
             return false;
         }
 
