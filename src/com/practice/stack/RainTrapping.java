@@ -1,7 +1,5 @@
 package com.practice.stack;
 
-import java.util.Arrays;
-
 public class RainTrapping {
 
     public static void main(String[] args) {
