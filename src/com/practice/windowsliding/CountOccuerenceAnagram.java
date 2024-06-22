@@ -16,36 +16,35 @@ public class CountOccuerenceAnagram {
 
     private static int getCountOccuerenceAnagram(String str, String anagramStr) {
 
-        int l = 0, j = 0, ans = 0, k = anagramStr.length();
-        Map<Character, Integer> map = new HashMap<Character, Integer>();
-        map = anagramStr.chars().boxed().collect(Collectors.toMap(m -> (char) m.intValue(), v -> 1, Integer::sum));
-
+        int k = anagramStr.length();
+        int l = 0, j = 0, ans = 0;
+        Map<Character, Long> map = anagramStr.chars().boxed().collect(Collectors.groupingBy(m -> (char) m.intValue(), Collectors.counting()));
         int count = map.size();
         while (j < str.length()) {
-
             if (map.containsKey(str.charAt(j))) {
-                map.put(str.charAt(j), map.getOrDefault(str.charAt(j), 0) - 1);
+                map.put(str.charAt(j), map.get(str.charAt(j)) - 1);
                 if (map.get(str.charAt(j)) == 0) {
                     count--;
                 }
             }
-            if ((j - l) + 1 == k) {
+            if ((j - l) + 1 < k) {
+                j++;
+            } else if ((j - l) + 1 == k) {
                 if (count == 0) {
                     ans++;
                 }
                 if (map.containsKey(str.charAt(l)) && map.get(str.charAt(l)) > 0) {
-                    map.put(str.charAt(l), map.getOrDefault(str.charAt(l), 0) - 1);
-                }  if (map.containsKey(str.charAt(l)) && map.get(str.charAt(l)) == 0) {
-                    map.put(str.charAt(l), map.getOrDefault(str.charAt(l), 0) + 1);
-                    count++;
+                    map.put(str.charAt(l), map.get(str.charAt(l)) - 1);
+
+                } else if (map.containsKey(str.charAt(l)) && map.get(str.charAt(l)) == 0) {
+                    map.put(str.charAt(l), map.get(str.charAt(l)) + 1);
                 }
+
                 l++;
                 j++;
 
             }
-            j++;
         }
-
         return ans;
     }
 

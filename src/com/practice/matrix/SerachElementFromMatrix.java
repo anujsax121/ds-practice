@@ -11,17 +11,7 @@ public class SerachElementFromMatrix {
 
     private static int searchElement(int[][] n, int element) {
 
-        int l =0, j= n[0].length-1;
 
-        while(l <= j) {
-           if(n[l][j] == element) {
-               return n[l][j];
-            } else if(n[l][j] < element) {
-               l++;
-           } else {
-               j--;
-           }
-        }
 
 
 
