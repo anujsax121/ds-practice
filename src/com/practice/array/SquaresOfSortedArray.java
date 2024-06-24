@@ -10,23 +10,23 @@ public class SquaresOfSortedArray {
     }
 
     private static void sortedSquaresSimplified(int[] n) {
-        int l = 0, j = n.length-1;
+        int l = 0, j = n.length - 1;
+        int len = n.length - 1;
+        int temp[] = new int[n.length];
         int left = 0;
         int right = 0;
-        int highestSquareIdx = n.length-1;
-        int[] squaredArr = new int[n.length];
-        while (l <= j) {
+        while (l < j) {
             left = n[l] * n[l];
             right = n[j] * n[j];
             if (left > right) {
-                squaredArr[highestSquareIdx--] = left;
+                temp[len--] = left;
                 l++;
-            } else  {
-                squaredArr[highestSquareIdx--] = right;
+            } else if (right > left) {
+                temp[len--] = right;
                 j--;
             }
         }
-        System.out.println(Arrays.toString(squaredArr));
+        System.out.println(Arrays.toString(temp));
     }
 
 }

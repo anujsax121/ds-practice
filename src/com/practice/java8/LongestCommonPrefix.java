@@ -1,14 +1,15 @@
 package com.practice.java8;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class LongestCommonPrefix {
 
     public static void main(String[] args) {
         // getLongestCommonPrefixUsingJava8(Arrays.asList("flower", "flow", "flight"));
-        getLongestCommonPrefix(new String[]{"flower", "flow", "flight"});
+        // getLongestCommonPrefix(new String[]{"flower", "flow", "flight"});
+        getLongestCommonPrefixUsingMap(new String[]{"flower", "flow", "flight"});
     }
 
     private static void getLongestCommonPrefix(String str[]) {
@@ -39,5 +40,9 @@ public class LongestCommonPrefix {
                     return s1.substring(0, i);
                 }).orElse("");
         System.out.println(commonStr);
+    }
+
+    public static void getLongestCommonPrefixUsingMap(String str[]) {
+
     }
 }

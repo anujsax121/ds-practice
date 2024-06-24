@@ -17,12 +17,12 @@ public class LongestSubStringKUniqueChar {
 
         int ans = Integer.MIN_VALUE;
         int l = 0, j = 0, count = 0;
+        Map<Character, Integer> map = new HashMap<>();
 
-        Map<Character, Integer> map = new HashMap<Character, Integer>();
-        while (j < str.length() && l < str.length()) {
-            map.put(str.charAt(j), map.getOrDefault(str.charAt(j), 0) + 1);
+        while (j < str.length()) {
+            map.put(str.charAt(j), map.getOrDefault(str.charAt(l), 0) + 1);
             if (map.size() == k) {
-                ans = Math.max(ans, (j - l) + 1);
+                ans = Math.max((j - l) + 1, ans);
             } else if (map.size() > k) {
                 while (map.size() > k) {
                     if (l < str.length() && map.containsKey(str.charAt(l))) {
@@ -30,14 +30,15 @@ public class LongestSubStringKUniqueChar {
                         if (map.get(str.charAt(l)) == 0) {
                             map.remove(str.charAt(l));
                         }
+                        l++;
                     }
-                    l++;
-
                 }
+
             }
             j++;
         }
 
         return ans;
+
     }
 }
