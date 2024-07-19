@@ -1,6 +1,6 @@
 package com.practice.windowsliding;
 
-public class LargestSubArrayOfSumK {
+public class LargestSubArrayOfSumK extends Thread {
 
     public static void main(String[] args) {
         int n[] = {-13, 0, 6, 15, 16, 2, 15, -12, 17, -16, 0, -3, 19, -3, 2, -9, -6};

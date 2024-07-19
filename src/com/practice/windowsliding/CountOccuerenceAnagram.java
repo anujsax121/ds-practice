@@ -18,7 +18,9 @@ public class CountOccuerenceAnagram {
 
         int k = anagramStr.length();
         int l = 0, j = 0, ans = 0;
-        Map<Character, Long> map = anagramStr.chars().boxed().collect(Collectors.groupingBy(m -> (char) m.intValue(), Collectors.counting()));
+        Map<Character, Long> map = anagramStr.chars()
+                .boxed()
+                .collect(Collectors.groupingBy(m -> (char) m.intValue(), Collectors.counting()));
         int count = map.size();
         while (j < str.length()) {
             if (map.containsKey(str.charAt(j))) {
