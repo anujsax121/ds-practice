@@ -3,10 +3,9 @@ package com.practice.binarysearch;
 public class RoratedSortedArr {
 
     public static void main(String[] args) {
-        int n[] = {3, 4, 5, 1, 2};
-
-        //   int index = getRoratedSortedArray(n);
-        int index = getRoratedSortedArraySecondApproach(n);
+        int n[] = {4, 5, 6, 7, 8, 0, 1, 2};
+        int index = getRoratedSortedArray(n);
+        // int index = getRoratedSortedArraySecondApproach(n);
         System.out.println(index);
     }
 
